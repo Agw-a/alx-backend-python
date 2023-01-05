@@ -6,5 +6,7 @@
 
 
 def to_str(n: float) -> str:
-    """returns string rep in argument"""
+    """typecast parameter to string
+    """
+
     return str(n)
