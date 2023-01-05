@@ -2,7 +2,8 @@
 import math
 
 """function that takes a float as argument
-    and returns the floor of the float"""
+    and returns the floor of the float
+"""
 
 
 def floor(n: float) -> int:
