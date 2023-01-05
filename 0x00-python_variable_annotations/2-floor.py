@@ -6,4 +6,5 @@ import math
 
 
 def floor(n: float) -> int:
+    """Returns floor of argument"""
     return math.floor(n)
