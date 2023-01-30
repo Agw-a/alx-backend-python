@@ -1,5 +1,10 @@
 ## Unit tests vs Integration tests
 
+- The difference between unit and integration tests.
+- Common testing patterns such as mocking, parametrizations and fixtures
+
+---
+
 **Resources**
 
 - [Memoization](https://en.wikipedia.org/wiki/Memoization)
