@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import access_nested_map, get_json
-from typing import Mapping, Sequence, Any
+from typing import Mapping, Sequence, Any, Dict
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -43,14 +43,14 @@ class TestGetJson(unittest.TestCase):
         ("http://holberton.io", {"payload": False})
     ])
     def test_get_json(self,
-                      test_url,
-                      test_payload):
+                      test_url: str,
+                      test_payload: Dict) -> None:
         '''test that utils.get_json returns the expected result.
         '''
         #  Patch requests.get
-        config = {'return_value.json.return_value': test_payload}
-        patcher = patch('requests.get', **config)
-        mock = patcher.start()
+        test_configuration = {"return_value.json.return_value": test_payload}
+        patches = patch("requests.get", **test_configuration)
+        mock = patches.start()
         self.assertEqual(get_json(test_url), test_payload)
         mock.assert_called_once()
-        patcher.stop()
+        patches.stop()
