@@ -48,9 +48,9 @@ class TestGetJson(unittest.TestCase):
         '''test that utils.get_json returns the expected result.
         '''
         #  Patch requests.get
-        test_configuration = {"return_value.json.return_value": test_payload}
-        patches = patch("requests.get", **test_configuration)
-        mock = patches.start()
+        config = {'return_value.json.return_value': test_payload}
+        patcher = patch('requests.get', **config)
+        mock = patcher.start()
         self.assertEqual(get_json(test_url), test_payload)
-        mock.assert_called_once(test_url)
-        patches.stop()
+        mock.assert_called_once()
+        patcher.stop()
